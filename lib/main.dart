@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hellochat/chat_service.dart';
+import 'package:hellochat/chat_service_provider.dart';
 import 'my_home_page.dart';
-void main() {
-  runApp(const ProviderScope(child: MyApp()));
+Future<void> main() async {
+  final chatService = ChatService();
+  await chatService.init();
+  runApp(ProviderScope(
+    overrides: [chatServiceProvider.overrideWithValue(chatService)],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
