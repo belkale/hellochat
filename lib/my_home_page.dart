@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hellochat/chat_service_provider.dart';
-import 'package:hellochat/my_list_provider.dart';
 import 'package:hellochat/my_stream_provider.dart';
 
 class MyHomePage extends ConsumerWidget {
