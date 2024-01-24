@@ -1,13 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hellochat/chat_service.dart';
-import 'package:hellochat/chat_service_provider.dart';
+import 'socket_provider.dart';
 import 'my_home_page.dart';
 Future<void> main() async {
-  final chatService = ChatService();
-  await chatService.init();
+  final socket = await Socket.connect('192.168.1.82', 12345);
   runApp(ProviderScope(
-    overrides: [chatServiceProvider.overrideWithValue(chatService)],
+    overrides: [socketProvider.overrideWithValue(socket)],
     child: const MyApp(),
   ));
 }

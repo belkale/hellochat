@@ -11,6 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  async: ^2.11.0
   cupertino_icons: ^1.0.2
   flutter_riverpod: ^2.4.9
   riverpod_annotation: ^2.3.3

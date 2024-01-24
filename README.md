@@ -1,16 +1,9 @@
 # hellochat
 
-A new Flutter project.
+Simple chat application example. It is dummy and allows use to experiment with the UI.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Start the python server server.py to start chat server. This starts a chat server socket stream.
+Update main.dart to use the correct ip address and the port of the server. Flutter application
+talks to this chat server and updates the UI.

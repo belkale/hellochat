@@ -1,7 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hellochat/chat_service_provider.dart';
-import 'package:hellochat/my_stream_provider.dart';
+import 'package:hellochat/chat_provider.dart';
+import 'package:hellochat/socket_provider.dart';
 
 class MyHomePage extends ConsumerWidget {
   final String title;
@@ -10,14 +12,17 @@ class MyHomePage extends ConsumerWidget {
   MyHomePage({required this.title, super.key});
 
   void _sendMessage(WidgetRef ref) async {
-    ref.read(chatServiceProvider).add(messageController.text);
+    final message = messageController.text;
+    ref.read(chatProvider.notifier).add(message);
+    final socket = ref.read(socketProvider);
+    socket.write(message);
     messageController.clear();
     myFocusNode.requestFocus();
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final liveChats = ref.watch(myStreamProvider);
+    final liveChats = ref.watch(chatProvider);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
