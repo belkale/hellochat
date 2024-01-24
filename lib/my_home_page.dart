@@ -10,22 +10,11 @@ class MyHomePage extends ConsumerWidget {
   MyHomePage({required this.title, super.key});
 
   void _sendMessage(WidgetRef ref) async {
-    ref.read(myStreamProvider.notifier).add(messageController.text);
+    ref.read(chatServiceProvider).add(messageController.text);
     messageController.clear();
     myFocusNode.requestFocus();
-
-    final chatService = ref.read(chatServiceProvider);
-    await chatService.add(messageController.text);
-    _checkNext(ref);
   }
 
-  Future<void> _checkNext(WidgetRef ref) async {
-    final chatService = ref.read(chatServiceProvider);
-    final next = await chatService.next();
-    if (next != null) {
-      ref.read(myStreamProvider.notifier).add(next);
-    }
-  }
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final liveChats = ref.watch(myStreamProvider);
