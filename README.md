@@ -1,7 +1,7 @@
 # hellochat
 
 Simple dummy chat application example. Mainly allows us to experiment with streams and 
-asynchronouse programming.
+asynchronous programming.
 
 ## Getting Started
 
