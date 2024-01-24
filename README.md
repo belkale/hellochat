@@ -1,9 +1,10 @@
 # hellochat
 
-Simple chat application example. It is dummy and allows use to experiment with the UI.
+Simple dummy chat application example. Mainly allows us to experiment with streams and 
+asynchronouse programming.
 
 ## Getting Started
 
-Start the python server server.py to start chat server. This starts a chat server socket stream.
+Start the chat server server.py using Python. This starts a chat server socket stream.
 Update main.dart to use the correct ip address and the port of the server. Flutter application
 talks to this chat server and updates the UI.
